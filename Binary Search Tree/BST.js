@@ -32,8 +32,12 @@ class BST {
       return  searchInsert_Tree(this.root)
     }
 
-    findMin() {
-        let current = this.root;
+    findMin(root) {
+
+        let current
+        if(root) {  current = root; }
+
+        else {  current = this.root; }
 
         while(current.left !== null) {
             current = current.left;
@@ -42,8 +46,11 @@ class BST {
         return current.value;
     }
 
-    findMax() {
-        let current = this.root;
+    findMax(root) {
+        let current
+        if(root) {  current = root; }
+
+        else {  current = this.root; }
 
         while(current.right !== null) {
             current = current.right;
@@ -91,6 +98,49 @@ class BST {
  
         return searchTree(this.root)
     }
+
+    delete = (root,val) =>  {
+        let head;
+
+         if(root) { head = root }
+         else { head = this.root }
+
+
+        if(head === null) return null;
+ 
+        if(val < head.value) head.left = delete(head.left,val)
+        else if(val > head.value) head.right = delete(head.right,val)
+
+        else {
+            if(head.left == null) return head.right
+            else if(head.right == null) return head.left
+
+            head.key = this.findMin(head.right)
+            head.right = delete(head.right,head.value)
+        }
+
+        return head
+    }
+
+    inorder() {
+        let output = "";
+      const inorderRec = (root = this.root) => {
+
+            if(root !== null) {
+                inorderRec(root.left)
+                    output += `${root.value  }`
+                inorderRec(root.right)
+
+            }
+    console.log(output)
+
+        }
+        inorderRec()
+
+    }
+
+
+
 }
 
 
