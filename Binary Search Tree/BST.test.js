@@ -27,9 +27,9 @@ describe("#findMin", () => {
     test("returns the minimum value in tree", () => {
     const mytree = BST.fromArray(120,20,100,505,10,7,80,90,333)
 
-        expect(mytree.findMin()).toBe(7)
+        expect(mytree.findMin().value).toBe(7)
         mytree.add(1)
-        expect(mytree.findMin()).toBe(1)
+        expect(mytree.findMin().value).toBe(1)
 
     })
 
@@ -39,9 +39,9 @@ describe("#findMax", () => {
     test("returns the maximum value in tree", () => {
     const mytree = BST.fromArray(120,20,100,505,60,7,80,90,10)
 
-        expect(mytree.findMax()).toBe(505)
+        expect(mytree.findMax().value).toBe(505)
         mytree.add(1000)
-        expect(mytree.findMax()).toBe(1000)
+        expect(mytree.findMax().value).toBe(1000)
 
     })
 

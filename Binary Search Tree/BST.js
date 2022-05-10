@@ -43,7 +43,7 @@ class BST {
             current = current.left;
         }
 
-        return current.value;
+        return current;
     }
 
     findMax(root) {
@@ -56,7 +56,7 @@ class BST {
             current = current.right;
         }
 
-        return current.value;
+        return current;
     }
 
     find = val => {
@@ -99,43 +99,82 @@ class BST {
         return searchTree(this.root)
     }
 
-    delete = (root,val) =>  {
-        let head;
+    delete = val =>  {
+        var prevnode = null;
 
-         if(root) { head = root }
-         else { head = this.root }
+      const removeNode = (node,val) => {
+          
+          if(node === null) return null;
+
+          if(node.value === val ) {
+
+            //is leaf node
+          if(node.left === null && node.right === null) 
+          { 
+              if(prevnode.left.value === node.value)
+                     { prevnode.left = null }
+              else if(prevnode.right.value === node.value)
+                     { prevnode.right = null }
+
+             return null;  
+        }
+            
+          //has one child
+          if(node.left === null) 
+          {
+              node.value = node.right.value;
+              node.right = null
+              return 0
+          }
+          if(node.right === null) 
+          {
+            node.value = node.left.value;
+            node.left = null
+            return 0
+          }
+
+          //has two childNodes
+          let tempnode = node.right
+
+          while(tempnode.left !== null) {
+              prevnode = tempnode
+              tempnode = tempnode.left;
+          }
+
+          node.value = tempnode.value
+
+          if(this.root === node.value) { previous.right = null; return 0 }
+          prevnode.left = null
+          return 0; 
+          
 
 
-        if(head === null) return null;
- 
-        if(val < head.value) head.left = delete(head.left,val)
-        else if(val > head.value) head.right = delete(head.right,val)
+          }
 
-        else {
-            if(head.left == null) return head.right
-            else if(head.right == null) return head.left
-
-            head.key = this.findMin(head.right)
-            head.right = delete(head.right,head.value)
+          else if(val < node.value) {
+              prevnode = node;
+            removeNode(node.left,val)
+          } else { 
+            prevnode = node;
+            removeNode(node.right,val)
         }
 
-        return head
+      }
+        removeNode(this.root,val)
+
     }
 
     inorder() {
-        let output = "";
-      const inorderRec = (root = this.root) => {
+       if(this.root === null) return null
 
-            if(root !== null) {
-                inorderRec(root.left)
-                    output += `${root.value  }`
-                inorderRec(root.right)
-
-            }
-    console.log(output)
-
-        }
-        inorderRec()
+       let result = [];
+       const transever = node => {
+           node.left && transever(node.left)
+           result.push(node.data)
+           node.right && transever(node.right)
+       }
+        transever(this.root)
+        return result;
 
     }
 
