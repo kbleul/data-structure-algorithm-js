@@ -164,20 +164,177 @@ class BST {
 
     }
 
-    inorder() {
-       if(this.root === null) return null
+     /* Compute the "maxDepth" of a tree -- the number of
+       nodes along the longest path from the root node
+       down to the farthest leaf node.*/
+       // Recursive Method
 
-       let result = [];
-       const transever = node => {
-           node.left && transever(node.left)
-           result.push(node.data)
-           node.right && transever(node.right)
+       //time complexity = 0(n)
+        maxDepth(node = this.root)
+       {
+           if (node == null)
+               return -1;
+           else
+           {
+               /* compute the depth of each subtree */
+               let lDepth = this.maxDepth(node.left);
+               let rDepth = this.maxDepth(node.right);
+
+               /* test
+      console.log("value - " + node.value + "  ldepth" + lDepth)
+      console.log("value - " + node.value + "  rdepth" + rDepth + "\n------------\n")  */
+
+
+               /* use the larger one */
+               if (lDepth > rDepth)
+                   return (lDepth + 1);
+                else
+                   return (rDepth + 1);
+           }
        }
-        transever(this.root)
-        return result;
+
+       // Iterative method to find height of Binary Tree
+       //time complexity = 0(n)
+
+        treeHeight(node = this.root) {
+ 
+    // Base Case
+        if (node == null)
+            return 0;
+   
+        // Create an empty queue for level order traversal
+        let queue = [];
+   
+        // Enqueue Root and initialize height
+        queue.push(node);
+        let height = 0;
+   
+        while (1 == 1)
+        {
+            // nodeCount (queue size) indicates number of nodes
+            // at current level.
+            let nodeCount = queue.length;
+            if (nodeCount == 0)
+                return --height;
+            height++;
+   
+            // Dequeue all nodes of current level and Enqueue all
+            // nodes of next level
+            while (nodeCount > 0)
+            {
+                let newnode = queue.shift();
+                if (newnode.left != null)
+                    queue.push(newnode.left);
+                if (newnode.right != null)
+                    queue.push(newnode.right);
+                nodeCount--;
+            }
+        }
+}
+
+
+
+  //timeconplexity for all depth first transversal algorithms below = O(n)
+  //space complexity = best case : 0(logn) worst case : o(n)
+
+    postOrder(root = this.root) {
+        if(root === null) return;
+
+        this.postOrder(root.left)
+        this.postOrder(root.right)
+
+        console.log( root.value + " , ")
 
     }
 
+    preOrder(root = this.root) {
+        if(root === null) return;
+
+        console.log( root.value + " , ")
+
+        this.preOrder(root.left)
+        this.preOrder(root.right)
+    }
+
+
+    inOrder(root = this.root) {
+        if(root === null) return;
+
+        this.inOrder(root.left)
+
+        console.log( root.value + " , ")
+
+        this.inOrder(root.right)
+
+
+    }
+
+     inorder()
+    {
+        if (this.root == null)
+            return;
+ 
+        var stack = [];
+        var curr = this.root;
+ 
+        // traverse the tree
+        while (curr != null || stack.length > 0)
+        {
+ 
+            /*
+             * Reach the left most Node of the curr Node
+             */
+            while (curr != null)
+            {
+             
+                /*
+                 * place pointer to a tree node on the stack before traversing the node's left
+                 * subtree
+                 */
+                stack.push(curr);
+                curr = curr.left;
+            }
+ 
+            /* Current must be NULL at this point */
+            curr = stack.pop();
+ 
+            console.log(curr.value + " ")
+            /*
+             * we have visited the node and its left subtree. Now, it's right subtree's turn
+             */
+            curr = curr.right;
+        }
+    }
+
+    /* BFT - BREADTH FIRST TRANVERSAL print Level Order Traversal */
+    /*
+     * Given a binary tree. Print its nodes in level order using array for
+     * implementing queue
+     * 
+     * //time and space complexity = o(n)
+     */
+     printLevelOrder() {
+        var queue = [];
+        queue.push(this.root);
+        while (queue.length != 0) {
+            /*
+             * The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+             * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+             */
+            var tempNode = queue.shift();
+            console.log(tempNode.value + " ");
+ 
+            /* Enqueue left child */
+            if (tempNode.left != null) {
+                queue.push(tempNode.left);
+            }
+ 
+            /* Enqueue right child */
+            if (tempNode.right != null) {
+                queue.push(tempNode.right);
+            }
+        }
+    }
 
 
 }
