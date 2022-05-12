@@ -10,8 +10,8 @@ describe("#insertAtHead", () => {
           expect(ll.head.next).toBeNull();
           expect(ll.length).toBe(1);
          ll.insertAtHead(20);
-          expect(ll.head.value).toBe(20);
-          expect(ll.head.next.value).toBe(10);
+           expect(ll.head.value).toBe(20);
+           expect(ll.head.next.value).toBe(10);
           expect(ll.length).toBe(2);
       })
 })

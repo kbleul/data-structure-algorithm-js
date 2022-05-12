@@ -99,12 +99,12 @@
      }
 
      //utitlity function printout linkedlist
-     print = () => {
+     print = (root = this.head) => {
          let output = "";
-         let currenthead;
+         let currenthead = root;
 
          for(let i = 0 ; i < this.length; i ++){
-            if(i === 0)  {   currenthead = this.head;  output += `${currenthead.value}`}
+            if(i === 0)  {     output += `${currenthead.value}`}
             else {
                 currenthead = currenthead.next;
 
@@ -120,11 +120,18 @@
 
 
  
-
+LinkedList.fromArray = (...values) => {
+   
+    const list = new LinkedList()
+    for(let i of values.reverse()) {
+        list.insertAtHead(i)
+    }
+    return list
+}
 
 
  class LinkedListNode {
-     constructor(value,next) {
+     constructor(value, next) {
          this.value = value
          this.next = next
      }
