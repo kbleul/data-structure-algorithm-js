@@ -6,7 +6,8 @@ const LinkedList = require("../../LinkedList/LinkedList.js")
         if (head == null)
             return head;
  
-        let slow = fast = head;
+        let slow = head;
+        let fast = head;
  
         while (fast.next != null && fast.next.next != null)
         {

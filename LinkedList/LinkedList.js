@@ -4,6 +4,8 @@
          this.length = 0
      }
 
+     getSize = () => { return this.length; }
+
      insertAtHead = value => {
             const newnode = new LinkedListNode(value,this.head)
 
@@ -77,7 +79,7 @@
          }
 
          const oldhead = this.head.value
-         this.head.next = this.head.next;
+         this.head = this.head.next;
          this.length--
 
          return oldhead
