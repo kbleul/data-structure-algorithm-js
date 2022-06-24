@@ -60,7 +60,8 @@ const LinkedList = require("../../LinkedList/LinkedList.js")
         return sortedlist;
     }
 
-  let list = LinkedList.fromArray(200,40,55,698,15,48,69,75,21,1000,254,58,977,12,3644,55,47,558,94,154,245,874,55,68);
+//   let list = LinkedList.fromArray(200,40,55,698,15,48,69,75,21,1000,254,58,977,12,3644,55,47,558,94,154,245,874,55,68);
+    let list = LinkedList.fromArray(10,40);
 
     list.print()
     list.print(mergeSort(list.getAtHead()))

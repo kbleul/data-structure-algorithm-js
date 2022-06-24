@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.5% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>77/87</span>
+                <span class='fraction'>77/88</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.66% </span>
+                <span class="strong">83.87% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>26/30</span>
+                <span class='fraction'>26/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.54% </span>
+                <span class="strong">90.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>65/71</span>
+                <span class='fraction'>65/72</span>
             </div>
         
             
@@ -211,6 +211,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">57x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">57x</span>
@@ -307,34 +309,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">53x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -350,6 +350,8 @@
          this.head = null
          this.length = 0
      }
+&nbsp;
+     getSize = <span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >return this.length; </span>}
 &nbsp;
      insertAtHead = value =&gt; {
             const newnode = new LinkedListNode(value,this.head)
@@ -424,7 +426,7 @@
          }
 &nbsp;
          const oldhead = this.head.value
-         this.head.next = this.head.next;
+         this.head = this.head.next;
          this.length--
 &nbsp;
          return oldhead
@@ -446,12 +448,12 @@
      }
 &nbsp;
      //utitlity function printout linkedlist
-     print = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+     print = <span class="fstat-no" title="function not covered" >(r</span>oot = <span class="branch-0 cbranch-no" title="branch not covered" >this.head)</span> =&gt; {
          let output = <span class="cstat-no" title="statement not covered" >"";</span>
-         let currenthead;
+         let currenthead = <span class="cstat-no" title="statement not covered" >root;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >         for(let i = <span class="cstat-no" title="statement not covered" >0 </span>; i &lt; this.length; i ++){</span>
-<span class="cstat-no" title="statement not covered" >            if(i === 0)  {   <span class="cstat-no" title="statement not covered" >currenthead = this.head; </span> <span class="cstat-no" title="statement not covered" >output += `${currenthead.value}`}</span></span>
+<span class="cstat-no" title="statement not covered" >            if(i === 0)  {     <span class="cstat-no" title="statement not covered" >output += `${currenthead.value}`}</span></span>
             else {
 <span class="cstat-no" title="statement not covered" >                currenthead = currenthead.next;</span>
 &nbsp;
@@ -465,22 +467,20 @@
 &nbsp;
  } 
 &nbsp;
-     //utitlity function to create linkedlist from array
+&nbsp;
+ 
 LinkedList.fromArray = (...values) =&gt; {
-     const ll = new LinkedList();
-    const reversedArray = values.reverse();
-&nbsp;
-    for(let val of reversedArray) {
-        ll.insertAtHead(val);
+   
+    const list = new LinkedList()
+    for(let i of values.reverse()) {
+        list.insertAtHead(i)
     }
-&nbsp;
-    return ll;
+    return list
 }
 &nbsp;
 &nbsp;
-&nbsp;
  class LinkedListNode {
-     constructor(value,next) {
+     constructor(value, next) {
          this.value = value
          this.next = next
      }
@@ -493,7 +493,7 @@ LinkedList.fromArray = (...values) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 02 2022 05:46:19 GMT-0400 (Eastern Daylight Time)
+                at Mon Jun 20 2022 04:57:36 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
