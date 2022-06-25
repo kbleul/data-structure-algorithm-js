@@ -38,50 +38,66 @@ const DLinkedList = require("./DLinkedList")
       dlist.insertAtIndex(5,65)
       dlist.insertAtIndex(7,505)
        dlist.insertAtIndex(9,550)
-       dlist.insertAtIndex(0,225)
-       dlist.insertAtIndex(-1,225)
-       dlist.insertAtIndex(16,225)
-       dlist.insertAtIndex(14,333)
+      //  dlist.insertAtIndex(0,225)
+      //  dlist.insertAtIndex(-1,225)
+      //  dlist.insertAtIndex(16,225)
+      //  dlist.insertAtIndex(14,333)
 
 
 
       console.log(dlist)
 
       dlist.print()
+     // console.log(dlist.getAtIndex(9))
+      dlist.printReverse()
 
-      dlist.removeAtIndex(2)
-      dlist.print()
-      console.log(dlist)
+    //   dlist.removeAtIndex(2)
+    //   dlist.print()
+    //   console.log(dlist)
 
-      dlist.removeAtIndex(13)
-      dlist.print()
-      console.log(dlist)
+    //   dlist.removeAtIndex(13)
+    //   dlist.print()
+    //   console.log(dlist)
 
-      dlist.removeAtIndex(12)
-      dlist.print()
-      console.log(dlist)
+    //   dlist.removeAtIndex(12)
+    //   dlist.print()
 
-      dlist.removeAtIndex(8)
-      dlist.print()
+    //   dlist.removeAtIndex(8)
+    //  console.log(dlist)
+
+  
+      // dlist.print()
+     //dlist.printReverse()
+
+    //  dlist.removeAtTail()
+    //  dlist.removeAtTail()
+    //  dlist.removeAtTail()
+    //  dlist.removeAtTail()
 
 
- console.log(dlist.getAtHead())
- console.log(dlist.getAtTail())
- console.log(dlist.getAtIndex(3))
- console.log(dlist.getAtIndex(13))
- console.log(dlist.getAtIndex(9))
- console.log(dlist.getAtIndex(10))
- console.log(dlist.getAtIndex(11))
- console.log(dlist.getAtIndex(1))
- console.log(dlist.getAtIndex(2))
- console.log("----------------")
- console.log(dlist.getAtIndex(7))
- console.log(dlist.getAtIndex(6))
- console.log(dlist.getAtIndex(5))
- console.log(dlist.getAtIndex(8))
 
- console.log(dlist.getAtIndex(-1))
- console.log(dlist.getAtIndex(0))
+    //  dlist.print()
+
+
+
+
+//  console.log(dlist.getAtHead())
+//  console.log(dlist.getAtTail())
+//  console.log(dlist.getAtIndex(3))
+//  console.log(dlist.getAtIndex(13))
+//  console.log(dlist.getAtIndex(9))
+//  console.log(dlist.getAtIndex(10))
+//  console.log(dlist.getAtIndex(11))
+//  console.log(dlist.getAtIndex(1))
+//  console.log(dlist.getAtIndex(2))
+//  console.log("----------------")
+//  console.log(dlist.getAtIndex(7))
+//  console.log(dlist.getAtIndex(6))
+//  console.log(dlist.getAtIndex(5))
+//  console.log(dlist.getAtIndex(8))
+
+//  console.log(dlist.getAtIndex(-1))
+//  console.log(dlist.getAtIndex(0))
 
 
 

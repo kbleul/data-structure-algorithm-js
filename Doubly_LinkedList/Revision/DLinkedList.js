@@ -21,7 +21,6 @@
 
             const newnode = new NewNode(null, val , oldhead)
 
-
             this.head = newnode
             oldhead.prev = this.head
             this.length++
@@ -78,6 +77,15 @@
        this.length--
     }
 
+    removeAtTail = () => {
+        if(this.length === 0 || this.length === 1) return this.removeAtHead()
+
+        let oldtail = this.tail
+        this.tail = this.tail.prev
+        this.tail.next = null
+        oldtail.prev = null
+    }
+
     removeAtIndex = index => {
         if(index < 0 || index >= this.length) return undefined
         if(this.length === 0) return null
@@ -106,8 +114,6 @@
             currenthead.next = currenthead.prev = null
             }
             this.length--
-
-
         
     }
  
@@ -136,17 +142,18 @@
         let currenthead = this.head
 
         for(let i = 1 ; i <= index ; i++) {  currenthead = currenthead.next; }
-
+console.log("normal")
         return currenthead.val;
         }
 
         else {
             let currenttail = this.tail
+            console.log("reverse")
+        for(let i = 0 ; i < (this.length - index) - 1 ; i++) 
+            { 
+                 currenttail = currenttail.prev; }
 
-        for(let i = 1 ; i < this.length - index ; i++) 
-            {  currenttail = currenttail.prev; }
-
-        return currenttail.val;
+        return currenttail.val
         }
 
     }
@@ -173,6 +180,31 @@
           output +=  currenthead.val + " -> null \n -------------------------------\n"
 
           console.log(output)
+    }
+
+    printReverse = () => {
+        if(this.length === 0)
+        { 
+            console.log( "Empty list \n -------------------------------\n")
+               return 
+        }
+        if(this.length === 1) {
+             console.log(`${this.head.val} -> null \n -------------------------------\n`)
+             return
+        }
+
+        let currenttail = this.tail;
+        let output = "";
+
+        while(currenttail.prev) { 
+            output += ` ${currenttail.val} -> `
+            currenttail = currenttail.prev; 
+        }
+
+          output +=  currenttail.val + " -> null \n -------------------------------\n"
+
+          console.log(output)
+       
     }
 
     getSize = () => { return this.length; }
