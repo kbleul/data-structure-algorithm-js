@@ -118,6 +118,32 @@
          console.log(output+ '->null');
      }
 
+
+     //mimicks array splice function wher it takes two parameter to 
+     // slice the list and return the new list
+     
+     /*the orignal list is not affected it will just create a new
+       list based on the paraments passed */
+
+     spliceList = (startIndex, endIndex) => {
+         if(startIndex < 0 || startIndex >= this.length || endIndex < 0 || endIndex > this.length || startIndex >= endIndex) return undefined
+
+         let startel = this.head;
+
+         for(let i = 1 ; i <= startIndex; i++) {
+            startel = startel.next
+         }
+
+         let newlist = new LinkedList();
+
+         for(let i = 0 ; i < endIndex - startIndex ; i++) {
+            newlist.insertAtTail(startel.value)
+            startel = startel.next
+         }
+
+         return newlist;
+
+     }
  } 
 
 
