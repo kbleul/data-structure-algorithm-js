@@ -69,19 +69,19 @@ const mergeLists = (leftlist , rightlist) => {
     return sortedlist
 }
 
-const mergeSort_List = list => {
-    if(list.getSize() <= 1) return list
+// const mergeSort_List = list => {
+//     if(list.getSize() <= 1) return list
 
-    let mid;
+//     let mid;
 
-        list.getSize() % 2 === 0 ? mid = list.getSize() / 2 : list = Math.ceil(list.getSize()/2)
+//         list.getSize() % 2 === 0 ? mid = list.getSize() / 2 : list = Math.ceil(list.getSize()/2)
  
-        let leftlist = list.spliceList(0, mid)
-        let rightlist = list.spliceList(mid, list.getSize() )
+//         let leftlist = list.spliceList(0, mid)
+//         let rightlist = list.spliceList(mid, list.getSize() )
 
-    return mergeLists(mergeSort_List(leftlist), mergeSort_List(rightlist))
+//     return mergeLists(mergeSort_List(leftlist), mergeSort_List(rightlist))
 
-}
+// }
 
 // let arr = [1000,5,24,154,33,69,8745,0,33,-1,57,-8,699,58,-996,55,0,22,1,1,1,1]
      
